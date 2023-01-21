@@ -12,11 +12,9 @@ Vagrant.configure("2") do |config|
         vb.customize ["modifyvm", :id, "--clipboard-mode", "bidirectional"]
         vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
         vb.gui = true
+    
+    config.vm.provision "ubuntu_etc shell script", type: "shell", path: "scripts/ubuntu_etc.sh", privileged: false  
         
-    args = []
-    config.vm.provision "ubuntu_etc shell script", type: "shell",
-        path: "scripts/ubuntu_etc.sh",
-        args: args
     end
     
   end
