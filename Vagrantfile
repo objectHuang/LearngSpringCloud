@@ -2,6 +2,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "generic/ubuntu2204"
   
   config.vm.define "ubuntu_vsc_java" do |ubuntu_vsc_java|
+
+    config.vm.synced_folder "~/Learn/SpringCloud/project", "/home/vagrant/project", automount: true
       
     config.vm.provider "virtualbox" do |vb|
         vb.name = "Ubuntu Desktop, Visual Studio Code and Java"
