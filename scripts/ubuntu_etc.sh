@@ -11,8 +11,8 @@ echo "-------------------------------------------**** End installing java ****--
 
 echo "-----------------------------------------**** Begin installing ubuntu-desktop ****----------------------------------------"
 sudo apt install ubuntu-desktop -y
-sudo apt-get remove --purge libreoffice* -y
-sudo apt-get remove --purge cheese -y
+sudo apt-get remove --purge --auto-remove libreoffice* -y
+sudo apt-get remove --purge --auto-remove cheese -y
 sudo apt-get purge --auto-remove totem totem-plugins -y
 sudo apt-get purge --auto-remove shotwell -y
 sudo apt-get purge --auto-remove gnome-todo -y
@@ -24,6 +24,8 @@ sudo apt-get purge --auto-remove gnome-mines -y
 sudo apt-get purge --auto-remove gnome-sudoku -y
 sudo apt-get purge --auto-remove aisleriot gnome-mahjongg -y
 sudo apt purge --autoremove gnome-games -y
+sudo apt-get purge --auto-remove thunderbird* -y
+sudo apt-get purge --auto-remove byobu* -y
 sudo apt clean -y
 echo "------------------------------------------**** End installing ubuntu-desktop ****------------------------------------------"
 
@@ -36,9 +38,9 @@ sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packag
 rm -f packages.microsoft.gpg
 
 #Update the package cache and install the package
-sudo apt install apt-transport-https
+sudo apt install apt-transport-https -y
 sudo apt update
-sudo apt install code
+sudo apt install code -y
 echo "------------------------------------------**** End installing visual code ****------------------------------------------"
 
 
@@ -67,3 +69,4 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 36
 echo "----------------------------------------**** End updating ubuntu desktop setting ****----------------------------------"
 
 echo "-----------------------------------------**** End installing Ubuntu, etc ****---------------------------------------------------"
+sudo reboot
